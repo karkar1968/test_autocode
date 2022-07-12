@@ -4,7 +4,6 @@ import com.epam.test.autocode.entity.User;
 
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class UserRepository {
@@ -18,7 +17,7 @@ public class UserRepository {
                     char c = (char)(r.nextInt(26) + 'a');
                     return new User(i.longValue(), c);
                 })
-                .collect(Collectors.toList());
+                .toList();
     }
 }
 

@@ -27,7 +27,7 @@ class UserRepositoryTest {
         testUsers  = repository.createUsers(initUserCount);
     }
     @Test
-    public void givenUserFirstNameComparator_whenUsersCompare_thenSuccess(){
+    void givenUserFirstNameComparator_whenUsersCompare_thenSuccess(){
 
         List<User> afterComparing = testUsers.stream()
                 .sorted(firstNameComparator)
