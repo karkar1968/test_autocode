@@ -1,6 +1,7 @@
 package com.epam.test.autocode.repository;
 
 import com.epam.test.autocode.compare.UserFirstNameComparator;
+import com.epam.test.autocode.compare.UserLastNameComparator;
 import com.epam.test.autocode.entity.User;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -17,13 +18,14 @@ class UserRepositoryTest {
 
     private List<User> testUsers = new ArrayList<>();
     private UserRepository repository = new UserRepository();
-    private UserFirstNameComparator firstNameComparator = new UserFirstNameComparator();
-    private Integer initUserCount = 9;
-    private Comparator<User> userFNC = Comparator.comparing(User::getFirstName);
-    private Comparator<User> userLNC = Comparator.comparing(User::getLastName);
+    private final UserFirstNameComparator firstNameComparator = new UserFirstNameComparator();
+    private final UserLastNameComparator lastNameComparator = new UserLastNameComparator();
+    private final Comparator<User> userFNC = Comparator.comparing(User::getFirstName);
+    private final Comparator<User> userLNC = Comparator.comparing(User::getLastName);
 
     @BeforeAll
     public void init() {
+        Integer initUserCount = 9;
         testUsers  = repository.createUsers(initUserCount);
     }
     @Test
@@ -31,6 +33,24 @@ class UserRepositoryTest {
 
         List<User> afterComparing = testUsers.stream()
                 .sorted(firstNameComparator)
+                .collect(Collectors.toList());
+
+        assertFalse(isSorted(afterComparing, userFNC));
+    }
+    @Test
+    void givenUserLastNameComparator_whenUsersCompare_thenSuccess(){
+
+        List<User> afterComparing = testUsers.stream()
+                .sorted(firstNameComparator)
+                .collect(Collectors.toList());
+
+        assertTrue(isSorted(afterComparing, userFNC));
+    }
+    @Test
+    void givenUserLastNameComparator_whenUsersCompare_thenFalse(){
+
+        List<User> afterComparing = testUsers.stream()
+                .sorted(lastNameComparator)
                 .collect(Collectors.toList());
 
         assertFalse(isSorted(afterComparing, userFNC));
