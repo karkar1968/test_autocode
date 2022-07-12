@@ -1,9 +1,6 @@
 package com.epam.test.autocode.entity;
 
-import lombok.Builder;
 import lombok.Data;
-
-import java.util.Random;
 
 @Data
 public class User {
