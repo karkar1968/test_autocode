@@ -33,7 +33,7 @@ class UserRepositoryTest {
                 .sorted(firstNameComparator)
                 .collect(Collectors.toList());
 
-        assertTrue(isSorted(afterComparing, userFNC));
+        assertFalse(isSorted(afterComparing, userFNC));
     }
 
     boolean isSorted(List<User> users, Comparator<User> comparator) {
