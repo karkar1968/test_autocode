@@ -35,7 +35,7 @@ class UserRepositoryTest {
                 .sorted(firstNameComparator)
                 .collect(Collectors.toList());
 
-        assertFalse(isSorted(afterComparing, userFNC));
+        assertTrue(isSorted(afterComparing, userFNC));
     }
     @Test
     void givenUserLastNameComparator_whenUsersCompare_thenSuccess(){
