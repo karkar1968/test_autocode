@@ -35,7 +35,7 @@ class UserRepositoryTest {
                 .sorted(firstNameComparator)
                 .collect(Collectors.toList());
 
-        assertFalse(isSorted(afterComparing, userFNC));
+        assertTrue(isSorted(afterComparing, userFNC));
     }
     @Test
     void givenUserLastNameComparator_whenUsersCompare_thenSuccess(){
@@ -53,12 +53,13 @@ class UserRepositoryTest {
                 .sorted(lastNameComparator)
                 .collect(Collectors.toList());
 
-        assertFalse(isSorted(afterComparing, userFNC));
+        assertTrue(isSorted(afterComparing, userFNC));
     }
 
     boolean isSorted(List<User> users, Comparator<User> comparator) {
         for (int i = 0; i < users.size() - 1; ++i) {
-            if (comparator.compare(users.get(i), users.get(i + 1)) > 0)
+            int compare = comparator.compare(users.get(i), users.get(i + 1));
+            if (compare > 0)
                 return false;
         }
         return true;
