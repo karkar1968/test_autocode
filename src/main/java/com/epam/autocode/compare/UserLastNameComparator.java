@@ -1,6 +1,6 @@
-package com.epam.test.autocode.compare;
+package com.epam.autocode.compare;
 
-import com.epam.test.autocode.entity.User;
+import com.epam.autocode.entity.User;
 
 import java.util.Comparator;
 

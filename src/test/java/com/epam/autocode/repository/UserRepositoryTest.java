@@ -1,8 +1,8 @@
-package com.epam.test.autocode.repository;
+package com.epam.autocode.repository;
 
-import com.epam.test.autocode.compare.UserFirstNameComparator;
-import com.epam.test.autocode.compare.UserLastNameComparator;
-import com.epam.test.autocode.entity.User;
+import com.epam.autocode.entity.User;
+import com.epam.autocode.compare.UserFirstNameComparator;
+import com.epam.autocode.compare.UserLastNameComparator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;

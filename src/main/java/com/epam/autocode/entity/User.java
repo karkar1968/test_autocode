@@ -1,4 +1,4 @@
-package com.epam.test.autocode.entity;
+package com.epam.autocode.entity;
 
 import lombok.Data;
 

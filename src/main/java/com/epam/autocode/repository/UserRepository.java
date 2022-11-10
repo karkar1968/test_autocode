@@ -1,6 +1,6 @@
-package com.epam.test.autocode.repository;
+package com.epam.autocode.repository;
 
-import com.epam.test.autocode.entity.User;
+import com.epam.autocode.entity.User;
 
 import java.util.List;
 import java.util.Random;
